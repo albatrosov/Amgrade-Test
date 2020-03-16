@@ -1,0 +1,32 @@
+.without_container{
+  padding: 15px 0;
+
+  .wrapper{
+    display: flex;
+    justify-content: center;
+
+    >div{
+      padding: 0 15px;
+    }
+  }
+
+  .custom-col-5{
+    max-width: calc(42% - 30px);
+    text-align: right;
+  }
+  .custom-col-7{
+    width: calc(58% - 30px);
+  }
+}
+
+@media(max-width: 576px){
+  .without_container{
+    .wrapper{
+      flex-wrap: wrap;
+      >div{
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

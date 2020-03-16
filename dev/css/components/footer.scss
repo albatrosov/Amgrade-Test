@@ -1,0 +1,28 @@
+@import 'header';
+@import '../variables';
+
+.footer{
+  @extend .header;
+  margin-bottom: 0;
+  box-shadow: none;
+
+  .container .row{
+    height: 40px;
+  }
+
+  .logo{
+    font-size: 16px;
+  }
+
+  span{
+    color: $white;
+  }
+}
+
+@media(max-width: 991px){
+  .footer{
+    span{
+      margin-right: 28px;
+    }
+  }
+}

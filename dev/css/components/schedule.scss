@@ -1,0 +1,54 @@
+@import '../variables';
+@import '../mixins';
+
+.schedule{
+  display: flex;
+  margin: 100px auto;
+  overflow: auto;
+
+  .col{
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    justify-content: space-around; // centering beetwen prev 2 teams
+    &:first-child .team:before{
+      width: calc(100% + 15px);
+    }
+    &:last-child .team:before{
+      width: calc(100% + 17px);
+      right: 0;
+    }
+  }
+
+  .team{
+    position: relative;
+    border: 1px solid $black;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    background: #fff;    
+    &:before{   
+      @include chains;   
+      height: 1px;
+      width: calc(100% + 32px);
+      z-index: -1;
+    }
+    &:after{
+      @include chains;   
+      // calculated in js, to inline styles
+      height: var(--team-after-height); 
+      width: 1px;
+    }
+    &:nth-child(even){
+      &:after{
+        top: -50%;
+      }
+    }
+  }
+}
+
+@media(max-width: 991px){
+  .schedule{
+    margin: 30px auto;
+  }
+}
